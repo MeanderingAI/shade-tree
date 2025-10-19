@@ -1,0 +1,17 @@
+# Development environment container
+name: dev-environment
+image: ubuntu:22.04
+cpu_limit: 3
+memory_limit: 1024
+privileged: true
+environment:
+  - TERM=xterm-256color
+  - USER=developer
+  - HOME=/home/developer
+mounts:
+  - /home/developer/projects:/home/developer/projects
+  - /home/developer/.ssh:/home/developer/.ssh
+  - /var/run/docker.sock:/var/run/docker.sock
+network:
+  type: bridge
+  bridge: lxcbr0

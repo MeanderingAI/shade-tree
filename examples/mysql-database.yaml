@@ -1,0 +1,17 @@
+# Database container with higher resources
+name: mysql-database
+image: ubuntu:20.04
+cpu_limit: 4
+memory_limit: 2048
+privileged: false
+environment:
+  - MYSQL_ROOT_PASSWORD=secure_password
+  - MYSQL_DATABASE=myapp
+  - MYSQL_USER=appuser
+  - MYSQL_PASSWORD=userpass
+mounts:
+  - /var/lib/mysql:/var/lib/mysql
+  - /etc/mysql:/etc/mysql
+network:
+  type: bridge
+  bridge: lxcbr0

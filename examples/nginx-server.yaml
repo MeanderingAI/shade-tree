@@ -1,0 +1,15 @@
+# Web server container
+name: nginx-server
+image: ubuntu:20.04
+cpu_limit: 2
+memory_limit: 512
+privileged: false
+environment:
+  - NGINX_PORT=80
+  - SERVER_NAME=example.com
+mounts:
+  - /var/www/html:/var/www/html
+  - /etc/nginx/sites-available:/etc/nginx/sites-available
+network:
+  type: bridge
+  bridge: lxcbr0

@@ -1,0 +1,10 @@
+# Simple Ubuntu container
+name: ubuntu-basic
+image: ubuntu:20.04
+cpu_limit: 1
+memory_limit: 256
+privileged: false
+environment:
+  - DEBIAN_FRONTEND=noninteractive
+network:
+  type: bridge
